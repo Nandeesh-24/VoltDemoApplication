@@ -7,17 +7,17 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import setup.BaseClass;
+import utils.Utils;
 
 import java.util.List;
 
 public class productsPage extends BaseClass {
 
     @BeforeMethod
-    public void login() throws InterruptedException {
+    public void login() {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).submit();
-        Thread.sleep(2000);
     }
 
     @Test

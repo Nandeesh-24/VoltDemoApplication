@@ -13,7 +13,6 @@ public class loginPage extends BaseClass {
         driver.findElement(By.id("user-name")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("login-button")).submit();
-        Thread.sleep(2000);
         if (valid) {
             String title = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
             Assert.assertEquals(title, "Products");
@@ -27,12 +26,11 @@ public class loginPage extends BaseClass {
     }
 
 
-    @Test(dataProvider = "validUser", dataProviderClass = loginDp.class)
+    @Test(dataProvider = "validPassword", dataProviderClass = loginDp.class)
     public void testPassword(String username, boolean valid, String password) throws InterruptedException {
         driver.findElement(By.id("user-name")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("login-button")).submit();
-        Thread.sleep(2000);
         if (valid) {
             String title = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
             Assert.assertEquals(title, "Products");
